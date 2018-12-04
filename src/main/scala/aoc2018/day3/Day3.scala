@@ -1,8 +1,8 @@
-package day3
+package aoc2018.day3
 
 object Day3 extends App {
 
-  val lines = () => scala.io.Source.fromFile("src/main/resources/day3.txt").getLines()
+  val lines = () => scala.io.Source.fromFile("src/main/resources/aoc2018.day3.txt").getLines()
 
   val Regex = """#(\d+) @ (\d+),(\d+): (\d+)x(\d+)""".r
 

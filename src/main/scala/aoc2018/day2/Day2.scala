@@ -1,8 +1,8 @@
-package day2
+package aoc2018.day2
 
 object Day2 extends App {
 
-  val lines = () => scala.io.Source.fromFile("src/main/resources/day2.txt").getLines()
+  val lines = () => scala.io.Source.fromFile("src/main/resources/aoc2018.day2.txt").getLines()
 
   val (twocount, threecount) = lines()
     .map(
