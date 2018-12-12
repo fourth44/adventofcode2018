@@ -2,7 +2,9 @@ package aoc2018.day3
 
 object Day3 extends App {
 
-  val lines = () => scala.io.Source.fromFile("src/main/resources/aoc2018.day3.txt").getLines()
+  val time0 = System.currentTimeMillis()
+
+  val lines = () => scala.io.Source.fromFile("src/main/resources/day3.txt").getLines()
 
   val Regex = """#(\d+) @ (\d+),(\d+): (\d+)x(\d+)""".r
 
@@ -22,14 +24,22 @@ object Day3 extends App {
     Coord(x, y, box.id)
   }
 
-  val claimsByCoordinate = coords.groupBy(c => (c.x, c.y)).mapValues(_.map(_.belongsTo))
+  val claimsByCoordinate: Map[(Int, Int), Stream[Int]] = coords.groupBy(c => (c.x, c.y)).mapValues(_.map(_.belongsTo))
 
   val res1 = claimsByCoordinate.count(_._2.size >= 2)
   println(res1)
 
+  val time1 = System.currentTimeMillis()
+
   val claimsWithDouble = claimsByCoordinate.collect { case (_, ids) if ids.size >= 2 => ids }.flatten.toSet
   val res2 = boxes.map(_.id).toSet -- claimsWithDouble
   println(res2)
+
+  val time2 = System.currentTimeMillis()
+
+  println(time1 - time0)
+  println(time2 - time1)
+
 
 
 }

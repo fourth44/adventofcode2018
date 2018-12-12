@@ -2,7 +2,7 @@ package aoc2018.day1
 
 object day1 extends App {
 
-  val lines = () => scala.io.Source.fromFile("src/main/resources/aoc2018.day1.txt").getLines().map(_.toInt)
+  val lines = () => scala.io.Source.fromFile("src/main/resources/day1.txt").getLines().map(_.toInt)
 
   val res1 = lines().sum
   println(res1)

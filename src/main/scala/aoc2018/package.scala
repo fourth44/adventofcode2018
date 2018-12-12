@@ -14,5 +14,24 @@ package object aoc2018 {
     }
   }
 
+  implicit class Grouper[A, B](seq: Iterable[(A, B)]) {
+    def groupByFirst: Map[A, Seq[B]] = seq.groupBy(_._1).mapValues(_.map(_._2).toSeq)
+  }
+
+  def invert[A,B](map: Iterable[(A, Set[B])]): Map[B, Seq[A]] = {
+    (for {
+      (point, claims) <- map
+      claim <- claims
+    } yield {
+      (claim, point)
+    }).groupByFirst
+  }
+
+  def timed[A](thunk: => A): (Long, A) = {
+    val t1 = System.currentTimeMillis()
+    val res = thunk
+    val t2 = System.currentTimeMillis()
+    (t2 - t1, res)
+  }
 
 }

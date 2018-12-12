@@ -5,7 +5,7 @@ import aoc2018.tag.@@
 
 object Day4 extends App {
 
-  val lines = () => scala.io.Source.fromFile("src/main/resources/aoc2018.day4.txt").getLines()
+  val lines = () => scala.io.Source.fromFile("src/main/resources/day4.txt").getLines()
 
   val dateTime = """\[(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})\] """r
   val beginShift = """Guard #(\d+) begins shift"""r
